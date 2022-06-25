@@ -1,0 +1,54 @@
+
+Proyecto de Prueba de CakePHP 3 para Kibernum / EClass
+
+composer create-project --prefer-dist cakephp/app:^3.9 app_german
+ /* ojo la 3.0 dio error .... */
+
+
+ /*  https://zoom.us/j/97010481129?pwd=Smcremt4bXVxeGs5ZmNLNXZJNXlwZz09  Karem */
+ verificar version :  3.9.10
+                    bin\cake version
+                     vendor / cakephp/ cakephp / VERSION.txt
+
+
+
+bin\cake migrations create CreateUsersTable
+bin\cake migrations migrate
+bin\cake migrations roolback  /*  revertir */ 
+
+crear controlador:
+
+bin\cake bake controller Users --no-actions
+bin\cake bake model Users 
+
+bin\cake bake template Users index
+
+bin\cake bake template Users add
+
+echo $this->Form->input('role', ['options' => ['admin'=>'Administrador', 'user' =>'usuario']  ]);
+
+
+composer require friendsofcake/bootstrap-ui 
+
+composer require friendsofcake/bootstrap-ui^3.3.7
+composer require Oefenweb/cakephp-bootstrap-ui
+
+
+FriendsOfCake
+/
+bootstrap-ui
+
+
+
+git config --local user.name "German Martinez"
+git config --local user.email gmartinezv@gmail.com
+
+
+https://github.com/gmartinezv/app_martinez.git
+git clone git@gitserver:/opt/git/project.git
+
+
+git clone gmartinezv@https://github.com/gmartinezv/app_martinez.git
+
+
+ 
