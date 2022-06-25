@@ -1,27 +1,27 @@
-# CakePHP Application Skeleton
+# CakePHP 3 APP Martinez (Prueba Backend Kibernum)
 
 [![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
 [![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
 
 A skeleton for creating applications with [CakePHP](https://cakephp.org) 3.x.
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+El framework usado es cakePHP 3.9: [cakephp/cakephp](https://github.com/cakephp/cakephp).
 
 ## Installation
 
 1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+2. Run `php composer.phar create-project --prefer-dist app_martinez `.
 
 If Composer is installed globally, run
 
 ```bash
-composer create-project --prefer-dist "cakephp/app:^3.8"
+composer create-project --prefer-dist "app_martinez/app:^3.8"
 ```
 
-In case you want to use a custom app dir name (e.g. `/myapp/`):
+In case you want to use a custom app dir name (e.g. `/app_martinez/`):
 
 ```bash
-composer create-project --prefer-dist "cakephp/app:^3.8" myapp
+composer create-project --prefer-dist "app_martinez/app:^3.8" myapp
 ```
 
 You can now either use your machine's webserver to view the default home page, or start
