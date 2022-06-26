@@ -27,8 +27,8 @@ $cakeDescription = 'Prueba de CakePHP3.9.10 ';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('bootstrap.min.css') ?>
-    <?= $this->Html->script(['bootstrap.min','jquery-1.12.4.min']) ?>
+    <?= $this->Html->css(['bootstrap.min.css','estilos.css']) ?>
+    <?= $this->Html->script(['jquery-1.12.4.min','bootstrap.min']) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>

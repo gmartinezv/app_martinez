@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse nav-users">
+<nav class="navbar navbar-light bg-light fondo_azul-claro">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <?= $this->Html->link('POCAKE', ['controller' => 'Users', 'action' => 'index'], ['class' => 'navbar-brand']) ?>
+            <?= $this->Html->link('MARTINEZ', ['controller' => 'Users', 'action' => 'index'], ['class' => 'navbar-brand']) ?>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
@@ -27,7 +27,7 @@
                     </li>
                     <?php endif; ?>
                     <li>
-                        <?= $this->Html->link('Mi lista', ['controller' => 'bookmarks', 'action' => 'index']) ?>
+                        <?= $this->Html->link('Enlace otro', ['controller' => 'users', 'action' => 'home']) ?>
                     </li>
                 </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -35,12 +35,7 @@
                    <?= $this->Html->link('Salir', ['controller' => 'Users', 'action' => 'logout']) ?>
               </li>
             </ul>
-            <?php else: ?>
-            <ul class="nav navbar-nav navbar-right">
-              <li>
-                   <?= $this->Html->link('Registrarse', ['controller' => 'Users', 'action' => 'add']) ?>
-              </li>
-            </ul>
+            
             <?php endif; ?>
         </div>
     </div>

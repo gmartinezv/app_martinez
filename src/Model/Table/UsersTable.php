@@ -1,10 +1,13 @@
 <?php
 namespace App\Model\Table;
 
+use App\Model\Entity\User;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+
+
 
 /**
  * Users Model
@@ -33,7 +36,30 @@ class UsersTable extends Table
         $this->setTable('users');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+
+        
     }
+
+    public function findAuth2(Query $query, array $options)
+{
+    $query
+        ->select(['correo', 'clave'])
+        ->where(['Users.correo' => $options['username']]);
+        
+     // debug($options);
+    return $query;
+}
+
+public function findAuth(\Cake\ORM\Query $query, array $options)
+{
+    $query
+        ->select(['id', 'nombre', 'apellido', 'correo', 'clave', 'role'])
+        ->where(['Users.activo' => 1]);
+
+    return $query;
+}
+
 
     /**
      * Default validation rules.
@@ -65,11 +91,9 @@ class UsersTable extends Table
             ->requirePresence('correo', 'create')
             ->notEmptyString('correo');
 
-        $validator
-            ->scalar('clave')
-            ->maxLength('clave', 255)
+        $validator            
             ->requirePresence('clave', 'create')
-            ->notEmptyString('clave');
+            ->notEmpty('clave', 'rellene este campo', 'create');
 
         $validator
             ->scalar('role')
@@ -93,4 +117,20 @@ class UsersTable extends Table
 
         return $validator;
     }
+
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->isUnique(['correo'], 'Ya existe un usuario con este correo electrónico.'));
+        return $rules;
+    }
+
+
+
+    public function recoverPassword($id)
+    {
+        $user = $this->get($id);
+        return $user->password;
+    }
+
+
 }

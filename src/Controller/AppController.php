@@ -46,10 +46,70 @@ class AppController extends Controller
         ]);
         $this->loadComponent('Flash');
 
+        $this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
+            'authenticate' => [
+                'Form' => [
+                    'fields' => [
+                        'username' => 'correo',
+                        'password' => 'clave'
+                    ],
+                    'finder' => 'auth'
+                ]
+            ],
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            'authError' => 'Debe Ingresar sus datos',
+            'loginRedirect' => [
+                'controller' => 'Users',
+                'action' => 'home'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            'unauthorizedRedirect' => $this->referer()
+        ]);
+
+
         /*
          * Enable the following component for recommended CakePHP security settings.
          * see https://book.cakephp.org/3/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
     }
+
+     /**
+     * Before render callback.
+     *
+     * @param \Cake\Event\Event $event The beforeRender event.
+     * @return void
+     */
+    public function beforeRender(Event $event)
+    {
+        if (!array_key_exists('_serialize', $this->viewVars) &&
+            in_array($this->response->type(), ['application/json', 'application/xml'])
+        ) {
+            $this->set('_serialize', true);
+        }
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        $this->set('current_user', $this->Auth->user());
+        $this->Auth->config('authError', false);
+    }
+
+    public function isAuthorized($user)
+    {
+        if(isset($user['role']) and $user['role'] === 'admin')
+        {
+            return true;
+        }
+
+        return false;
+    }
+
 }
