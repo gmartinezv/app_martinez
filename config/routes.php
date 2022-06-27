@@ -96,6 +96,11 @@ Router::scope('/', function (RouteBuilder $routes) {
 
 Router::scope('/users', function (RouteBuilder $routes) {
 
+    $routes->registerMiddleware('csrf', new CsrfProtectionMiddleware([
+        'httpOnly' => true,
+    ]));    
+    $routes->applyMiddleware('csrf');
+
      $routes->connect('/index', ['controller'=>'users', 'action'=>'index']);
      $routes->connect('/view', ['controller'=>'users', 'action'=>'view']);
 

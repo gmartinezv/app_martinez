@@ -132,5 +132,14 @@ public function findAuth(\Cake\ORM\Query $query, array $options)
         return $user->password;
     }
 
+    public function beforeDelete($event, $entity, $options)
+    {
+        if ($entity->role == 'admin')
+        {
+            return false;
+        }
+        return true;
+    }
+
 
 }
