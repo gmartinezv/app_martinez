@@ -1,51 +1,79 @@
 # CakePHP 3 APP Martinez (Prueba Backend Kibernum)
 
-[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 3.x.
 
-El framework usado es cakePHP 3.9: [cakephp/cakephp](https://github.com/cakephp/cakephp).
 
-## Installation
 
-1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist app_martinez `.
+El framework usado es cakePHP 3.9: 
 
-If Composer is installed globally, run
+## Instalacion
 
-```bash
-composer create-project --prefer-dist "app_martinez/app:^3.8"
-```
+Para ejecutarlo necesitas tener: un servidor con apache, php 7, Mysql, composer.
 
-In case you want to use a custom app dir name (e.g. `/app_martinez/`):
+1. bajarte la app con git clone https://github.com/gmartinezv/app_martinez.git
+2. entrar a la carpeta `cd app_martinez`.
+3. Run `composer install  `  o `composer update`.
 
-```bash
-composer create-project --prefer-dist "app_martinez/app:^3.8" myapp
-```
+ luego ejecutar en su localhost la direccion completa donde coloco el proyecto.
 
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
-
+o tambien puede crear un server:
 ```bash
 bin/cake server -p 8765
 ```
 
-Then visit `http://localhost:8765` to see the welcome page.
+y visite `http://localhost:8765` para ver la pagina inicial.
+
+Tambien se encuentra activa en mi servidor web:  https//germanweb.cl/app_martinez
+o en AWS de Amazon 
 
 ## Update
 
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
+sin compentarios.
+
 
 ## Configuration
 
-Read and edit `config/app.php` and setup the `'Datasources'` and any other
-configuration relevant for your application.
+existe un archivo de SQL el cual contiene los datos que maneja la aplicacion. 
 
 ## Layout
 
-The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) (v5) CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+sin comentarios.
+___________________________________________________________________
+PRUEBA PRÁCTICA
+La prueba consiste en hacer una app con un mantenedor de usuarios, el modelo de datos
+queda al criterio del postulante.La app debe contar con un Login de usuario, dos perfiles y un
+mantenedor de usuarios.
+La autentificación a la plataforma debe ser por medio de un usuario y contraseña, el usuario
+puede ser el correo electrónico de la persona.
+
+Funcionalidad esperada
+- Login de usuario
+- Mantenedor de personas y sus contraseñas de acceso
+- Buscador de usuarios por distintos criterios
+- Dos perfiles
+- Perfil visita: sólo tiene acceso al listado de usuarios y puede visualizar los datos
+de cada uno
+- Perfil admin: incluye lo del perfil visita y además puede modificar, eliminar,
+desactivar, modificar y cambiar contraseña de cualquier usuario.
+
+
+Pauta a seguir
+- La aplicación debe ser desarrollada usando CakePHP 2.* o 3.* y Bootstrap en el front.
+- El código debe quedar en un repositorio público como github y deberá ser compartido
+para su revisión, con una base de datos de prueba con datos precargados y un usuario
+y contraseña de test para cada perfil.
+- Se deberá generar una URL pública que permita probar lo desarrollado, de lo contrario
+no será considerado. Heroku, los créditos gratuitos de amazon o Vercel te ayudarán si
+no sabes donde subir la app.
+- Código limpio y reusable
+- Utilización de funcionalidades nativas del framework
+- Utilizar un algoritmo de encriptación de contraseña (no es MD5)
+- Funcionalidades adicionales útiles por parte del postulante.
+
+Los criterios de evaluación serán
+- Implementación
+- Convención de código y namespacing
+- Validaciones
+- Capa de seguridad para cada perfil
+- Orden
+- Funcionalidad de la aplicación.
