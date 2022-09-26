@@ -23,7 +23,7 @@ bin/cake server -p 8765
 
 y visite `http://localhost:8765` para ver la pagina inicial.
 
-Tambien se encuentra activa en mi servidor web:  https//germanweb.cl/app_martinez
+Tambien se encuentra activa en mi servidor web:  https://germanweb.cl/app_martinez
 
 o en AWS de Amazon http://13.59.163.50/app_martinez/ 
 
